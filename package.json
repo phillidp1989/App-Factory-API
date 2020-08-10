@@ -1,0 +1,29 @@
+{
+  "name": "app-factory",
+  "version": "1.0.0",
+  "description": "An app for app ideas",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phillidp1989/App-Factory.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/phillidp1989/App-Factory/issues"
+  },
+  "homepage": "https://github.com/phillidp1989/App-Factory#readme",
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "none"
+  },
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}
