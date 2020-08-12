@@ -3,13 +3,8 @@ documentation:
   - README.md
   - docs/**/*.md
 
-template views:
-  - views/**/*
-
 config:
   - config/**/*
-  - models/*
-  - models/**/*
 
 db:
   - db/**/*
