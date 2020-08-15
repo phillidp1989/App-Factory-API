@@ -1,0 +1,22 @@
+{
+  "name": "app-factory",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phillidp1989/App-Factory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/phillidp1989/App-Factory/issues"
+  },
+  "homepage": "https://github.com/phillidp1989/App-Factory#readme",
+  "dependencies": {
+    "eslint": "^7.7.0"
+  }
+}
