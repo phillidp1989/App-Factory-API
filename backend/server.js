@@ -10,4 +10,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Start the server
-app.listen(config.express.port, () => console.log(`App is running on port ${config.express.port}`));
+app.listen(config.express.port, () =>
+  console.log(`App is running on port ${config.express.port}`)
+);
