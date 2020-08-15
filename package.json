@@ -1,31 +1,24 @@
 {
   "name": "app-factory",
   "version": "1.0.0",
-  "description": "An app for app ideas",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "npm run lint",
-    "start": "node server.js",
-    "lint": "eslint --quiet .",
-    "fix": "eslint --fix ."
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/phillidp1989/App-Factory.git"
   },
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/phillidp1989/App-Factory/issues"
   },
   "homepage": "https://github.com/phillidp1989/App-Factory#readme",
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "none"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "prettier": "^2.0.5",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-node": "^11.1.0",
