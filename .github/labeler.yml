@@ -4,31 +4,33 @@ documentation:
   - docs/**/*.md
 
 config:
-  - config/**/*
+  - backend/config/**/*  
 
 db:
-  - db/**/*
-  - models/**/*
+  - backend/db/**/*
+  - backend/models/**/*
 
 UI/UX:
-  - public/**/*.css
-  - public/**/*.html
+  - frontend/build/**/*.css
+  - frontend/build/**/*.html
 
 automation:
   - .github/**/*.yml
 
 npm packages:
-  - src/package.json
-  - src/package-lock.json
+  - /**/package.json
+  - /**/package-lock.json
 
 models:
-  - models/*
-  - models/**/*
+  - backend/models/*
+  - backend/models/**/*
 
-public:
-  - public/*
-  - public/**/*
+build:
+  - frontend/build/*
+  - frontend/build/**/*
 
 routes:
-  - routes/*
-  - routes/**/*
+  - backend/routes/*
+  - backend/routes/**/*
+
+
