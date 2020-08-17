@@ -4,7 +4,7 @@ documentation:
   - docs/**/*.md
 
 config:
-  - backend/config/**/*  
+  - backend/config/**/*
 
 db:
   - backend/db/**/*
@@ -18,8 +18,8 @@ automation:
   - .github/**/*.yml
 
 npm packages:
-  - /**/package.json
-  - /**/package-lock.json
+  - **/package.json
+  - **/package-lock.json
 
 models:
   - backend/models/*
@@ -33,4 +33,12 @@ routes:
   - backend/routes/*
   - backend/routes/**/*
 
+frontend:
+  - frontend/**/*
+
+backend:
+  - backend/**/*
+
+components:
+  - frontend/src/components/**/*.js
 
