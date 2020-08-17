@@ -18,8 +18,8 @@ automation:
   - .github/**/*.yml
 
 npm packages:
-  - **/package.json
-  - **/package-lock.json
+  - '**/package.json'
+  - '**/package-lock.json'
 
 models:
   - backend/models/*
@@ -41,4 +41,3 @@ backend:
 
 components:
   - frontend/src/components/**/*.js
-
