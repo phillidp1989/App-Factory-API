@@ -1,7 +1,7 @@
 # Config file for labeler to auto label PRs
 documentation:
   - README.md
-  - docs/**/*.md
+  - docs/**/*
 
 config:
   - backend/config/**/*
