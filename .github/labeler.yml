@@ -16,6 +16,7 @@ UI/UX:
 
 automation:
   - .github/**/*.yml
+  - .eslintrc.json
 
 npm packages:
   - '**/package.json'
