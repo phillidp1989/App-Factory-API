@@ -1,5 +1,4 @@
 const express = require('express');
-const colors = require('colors');
 
 const connectDB = require('./config/db');
 const config = require('./config/config');
@@ -16,5 +15,5 @@ connectDB();
 
 // Start the server
 app.listen(config.express.port, () =>
-  console.log(`App is running on port ${config.express.port}`.green)
+  console.log(`App is running on port ${config.express.port}`)
 );
