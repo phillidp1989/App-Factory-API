@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const { db } = require('./config');
 
+// Function to connect to database
 const connectDB = async () => {
   try {
     await mongoose.connect(db.uri || 'mongodb://localhost/app_factory', {
@@ -8,7 +9,7 @@ const connectDB = async () => {
       useUnifiedTopology: true,
       useFindAndModify: false
     });
-    console.log('Connected to DB'.magenta);
+    console.log('Connected to DB');
     return true;
   } catch (err) {
     console.error('ERROR - db.js - connectDB: ', err);
