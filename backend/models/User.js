@@ -27,6 +27,7 @@ const UserSchema = new mongoose.Schema(
     },
     // Reference to document in the Post collection to allow populate method to be used 
     posts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Post' }],
+    solutions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Solution' }]
   },
   { timestamps: true },
 );
