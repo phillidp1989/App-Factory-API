@@ -10,7 +10,7 @@ const PostSchema = mongoose.Schema({
   posterId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   developerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   score: { type: Number },
-  likers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
+  likedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 
 const Post = mongoose.model('Post', PostSchema);
