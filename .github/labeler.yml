@@ -4,15 +4,11 @@ documentation:
   - docs/**/*
 
 config:
-  - backend/config/**/*
+  - config/**/*
 
 db:
-  - backend/db/**/*
-  - backend/models/**/*
-
-UI/UX:
-  - frontend/build/**/*.css
-  - frontend/build/**/*.html
+  - db/**/*
+  - models/**/*
 
 automation:
   - .github/**/*.yml
@@ -23,22 +19,12 @@ npm packages:
   - '**/package-lock.json'
 
 models:
-  - backend/models/*
-  - backend/models/**/*
-
-build:
-  - frontend/build/*
-  - frontend/build/**/*
+  - models/*
+  - models/**/*
 
 routes:
-  - backend/routes/*
-  - backend/routes/**/*
-
-frontend:
-  - frontend/**/*
+  - routes/*
+  - routes/**/*
 
 backend:
-  - backend/**/*
-
-components:
-  - frontend/src/components/**/*.js
+  - **/*
