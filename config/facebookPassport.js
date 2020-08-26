@@ -10,7 +10,7 @@ passport.serializeUser((user, done) => {
   done(null, user.providerId);
 });
 
-// Deserialize user retrieves the provider id from the session to fine user
+// Deserialize user retrieves the provider id from the session to find user
 passport.deserializeUser(async (id, done) => {
   try {
     const user = await User.findOne({ providerId: id });
