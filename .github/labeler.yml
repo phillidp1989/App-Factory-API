@@ -1,18 +1,14 @@
-# Config file for labeler to auto label PRs
+# Config file for labeler to auto label Pull Requests
 documentation:
   - README.md
   - docs/**/*
 
 config:
-  - backend/config/**/*
+  - config/**/*
 
 db:
-  - backend/db/**/*
-  - backend/models/**/*
-
-UI/UX:
-  - frontend/build/**/*.css
-  - frontend/build/**/*.html
+  - db/**/*
+  - models/**/*
 
 automation:
   - .github/**/*.yml
@@ -23,22 +19,9 @@ npm packages:
   - '**/package-lock.json'
 
 models:
-  - backend/models/*
-  - backend/models/**/*
-
-build:
-  - frontend/build/*
-  - frontend/build/**/*
+  - models/*
+  - models/**/*
 
 routes:
-  - backend/routes/*
-  - backend/routes/**/*
-
-frontend:
-  - frontend/**/*
-
-backend:
-  - backend/**/*
-
-components:
-  - frontend/src/components/**/*.js
+  - routes/*
+  - routes/**/*
