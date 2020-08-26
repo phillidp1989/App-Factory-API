@@ -1,4 +1,4 @@
-# Config file for labeler to auto label PRs
+# Config file for labeler to auto label Pull Requests
 documentation:
   - README.md
   - docs/**/*
