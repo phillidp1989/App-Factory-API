@@ -25,6 +25,3 @@ models:
 routes:
   - routes/*
   - routes/**/*
-
-backend:
-  - **/*
