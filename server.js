@@ -1,6 +1,7 @@
 const express = require('express');
 const passport = require('passport');
 const logger = require('morgan');
+const cors = require('cors');
 const cookieSession = require('cookie-session');
 
 const authRoutes = require('./routes/authRoutes');
@@ -18,6 +19,12 @@ require('dotenv').config();
 
 // Initiate express
 const app = express();
+
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true
+}));
 
 // Initialize Morgan logger
 app.use(logger('dev'));
