@@ -4,6 +4,7 @@ const connectDB = require('../config/db');
 // Connect to DB
 connectDB();
 
+// Data to seed user collection
 const userSeed = [
   {
     isDeveloper: false,
@@ -57,6 +58,7 @@ const userSeed = [
   }
 ];
 
+// Data to seed post collection
 const postSeed = [
   {
     title: 'App Factory',
@@ -67,7 +69,7 @@ const postSeed = [
     technologies: ['MongoDB', 'Express', 'React', 'Node'],
     posterId: '5f458293eb85b45f1875891d',
     activeDevelopers: '5f45825deb85b45f1875891c',
-    likers: ['5f4582b1eb85b45f1875891e']
+    likedBy: ['5f4582b1eb85b45f1875891e']
   },
   {
     title: 'Fitness Buddy',
@@ -79,7 +81,7 @@ const postSeed = [
     technologies: ['MySQL', 'Express', 'Node'],
     posterId: '5f4582b1eb85b45f1875891e',
     activeDevelopers: '5f45825deb85b45f1875891c',
-    likers: ['5f458293eb85b45f1875891d']
+    likedBy: ['5f458293eb85b45f1875891d']
   },
   {
     title: 'Get Grub',
@@ -90,7 +92,7 @@ const postSeed = [
     technologies: ['MongoDB', 'Express', 'React', 'Node'],
     posterId: '5f458293eb85b45f1875891d',
     activeDevelopers: '5f45825deb85b45f1875891c',
-    likers: ['5f4582b1eb85b45f1875891e']
+    likedBy: ['5f4582b1eb85b45f1875891e']
   },
   {
     title: 'The Music App',
@@ -101,18 +103,59 @@ const postSeed = [
     technologies: ['MySQL', 'Express', 'Node'],
     posterId: '5f458293eb85b45f1875891d',
     activeDevelopers: '5f45825deb85b45f1875891c',
-    likers: ['5f4582b1eb85b45f1875891e']
+    likedBy: ['5f4582b1eb85b45f1875891e']
   }
 ];
 
+// Data to seed solutions collection
+const solutionSeed = [
+  {
+    comments: [
+      'Created app bar',
+      'Sidenav on the left hand side of mobile devices',
+      'Card for ideas completed'
+    ],
+    repoName: 'App-Factory',
+    repoLink: 'https://github.com/phillidp1989/App-Factory',
+    post: '5f4c1eebdc995345f4a59af0',
+    posterId: '5f458293eb85b45f1875891d',
+    developerId: '5f4c1eebdc995345f4a59af6',
+    score: 2,
+    likedBy: ['5f4c1eebdc995345f4a59af7', '5f45825deb85b45f1875891c']
+  },
+  {
+    comments: ['Finished authetication', 'Edited dashboard', 'Post statistics'],
+    repoName: 'App-Factory-API',
+    repoLink: 'https://github.com/phillidp1989/App-Factory-API',
+    post: '5f4c1eebdc995345f4a59af0',
+    posterId: '5f458293eb85b45f1875891d',
+    developerId: '5f45825deb85b45f1875891c',
+    score: 3,
+    likedBy: [
+      '5f4c1eebdc995345f4a59af7',
+      '5f4c1eebdc995345f4a59af6',
+      '5f4c1eebdc995345f4a59af8'
+    ]
+  }
+];
+
+// Function to add new userSeed, posts and solutions
 const seed = async () => {
   const deleteResults = await db.Post.remove({});
   const results = await db.Post.insertMany(postSeed);
   const resultsUsers = await db.User.insertMany(userSeed);
+  const resultsSolutions = await db.Solution.insertMany(solutionSeed);
+  const update = await db.User.update(
+    { _id: '5f45825deb85b45f1875891c' },
+    { $push: { solutions: '5f4d005e81791c36f4ac2a0b' } }
+  );
   console.log('deleteResults', deleteResults);
   console.log('results', results);
   console.log('resultsUsers', resultsUsers);
+  console.log('resultsSolutions', resultsSolutions);
+  console.log('update', update);
   process.exit(0);
 };
 
+// Call seed function
 seed();
