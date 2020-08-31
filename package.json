@@ -8,7 +8,8 @@
     "start": "node server.js",
     "dev": "nodemon server.js",
     "lint": "eslint --quiet .",
-    "fix": "eslint --fix ."
+    "fix": "eslint --fix .",
+    "seed": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",
