@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 // Creation of Solution schema
 
-const PostSchema = mongoose.Schema({
+const SolutionSchema = mongoose.Schema({
   comments: [{ type: String }],
   repoName: { type: String },
   repoLink: { type: String },
@@ -13,6 +13,6 @@ const PostSchema = mongoose.Schema({
   likedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
 });
 
-const Post = mongoose.model('Post', PostSchema);
+const Solution = mongoose.model('Solution', SolutionSchema);
 
-module.exports = Post;
+module.exports = Solution;
