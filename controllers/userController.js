@@ -12,16 +12,16 @@ module.exports = {
   },
   // Update user details
   updateUser: async (req, res, next) => {
-      const {
-        _id,
-        provider,
-        providerId,
-        username,
-        displayName,
-        avatar,
-        isDeveloper
-      } = req.body;
-       try {
+    const {
+      _id,
+      provider,
+      providerId,
+      username,
+      displayName,
+      avatar,
+      isDeveloper
+    } = req.body;
+    try {
       const result = await db.User.updateOne(
         { _id },
         {

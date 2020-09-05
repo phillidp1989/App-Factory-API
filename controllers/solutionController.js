@@ -82,8 +82,8 @@ module.exports = {
   },
   // Delete a solution
   deleteSolution: async (req, res, next) => {
-      const { id: solutionId } = req.params;
-      try {
+    const { id: solutionId } = req.params;
+    try {
       const query = await db.Solution.findOne({ _id: solutionId }).populate([
         'postId',
         'developerId'
@@ -104,8 +104,8 @@ module.exports = {
   },
   // Update post details
   addComment: async (req, res, next) => {
-      const { solutionId, comments } = req.body;
-      try {
+    const { solutionId, comments } = req.body;
+    try {
       const result = await db.Solution.updateOne(
         { _id: solutionId },
         { $push: { comments } }
@@ -117,8 +117,8 @@ module.exports = {
   },
   // Delete single comment
   removeComment: async (req, res, next) => {
-      const { solutionId, comment } = req.body;
-      try {
+    const { solutionId, comment } = req.body;
+    try {
       const result = await db.Solution.updateOne(
         { _id: solutionId },
         { $pullAll: { comment } }
