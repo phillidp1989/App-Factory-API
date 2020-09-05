@@ -12,7 +12,7 @@ router.get(
   '/github/redirect',
   passport.authenticate('github', { failureRedirect: '/' }),
   (req, res) => {
-    res.status(200).redirect('http://localhost:3000/');
+    res.status(200).redirect('https://app-factory-e6ff0.web.app/');
   }
 );
 
@@ -27,7 +27,7 @@ router.get(
   '/google/redirect',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
-    res.status(200).redirect('http://localhost:3000/');
+    res.status(200).redirect('https://app-factory-e6ff0.web.app/');
   }
 );
 
@@ -42,14 +42,14 @@ router.get(
   '/facebook/redirect',
   passport.authenticate('facebook', { failureRedirect: '/' }),
   (req, res) => {
-    res.status(200).redirect('http://localhost:3000/');
+    res.status(200).redirect('https://app-factory-e6ff0.web.app/');
   }
 );
 
 // Logout route
 router.get('/logout', (req, res) => {
   req.logout();
-  res.status(200).redirect('http://localhost:3000/');
+  res.status(200).redirect('https://app-factory-e6ff0.web.app/');
 });
 
 module.exports = router;
