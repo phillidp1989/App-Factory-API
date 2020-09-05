@@ -4,7 +4,7 @@ module.exports = {
   // Get solution by ID
   getSolution: async (req, res, next) => {
     try {
-      const result = await db.Post.findById(req.params.id);
+      const result = await db.Solution.findById(req.params.id);
       res.status(200).json(result);
     } catch (err) {
       next(err);
