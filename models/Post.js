@@ -16,18 +16,22 @@ const PostSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  category: {
+  categories: {
     type: String,
     required: true
   },
   technologies: [{ type: String }],
   score: {
-    type: Number
+    type: Number,
+    default: 0
   },
+  comments: { type: String },
   posterId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   activeDevelopers: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+  solutions: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Solution' }],
   likedBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }]
-});
+}, { timestamps: true }
+);
 
 const Post = mongoose.model('Post', PostSchema);
 
