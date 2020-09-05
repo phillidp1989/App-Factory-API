@@ -67,9 +67,12 @@ module.exports = {
     try {
       const postId = req.params.id;
       // Find the solutions and users associated with deleted post
-      const postQuery = await db.Post.findOne({ _id: postId }).populate(['solutions', 'posterId']);
+      const postQuery = await db.Post.findOne({ _id: postId }).populate([
+        'solutions',
+        'posterId'
+      ]);
       // Create an array of solution IDs attached to post
-      const solutions = postQuery.solutions.map(solution => solution._id);
+      const solutions = postQuery.solutions.map((solution) => solution._id);
       // Remove all associated solutions
       const results = await db.Solution.remove({ _id: { $in: solutions } });
       // Remove post

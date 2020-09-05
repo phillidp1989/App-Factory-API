@@ -29,7 +29,10 @@ router.get('/solutions/:id', solutionController.getSolution);
 // // Get all solutions by post ID
 router.get('/solutions/post/:id', solutionController.allPostSolutions);
 // // Get all solutions by developer ID
-router.get('/solutions/developer/:id', solutionController.allDeveloperSolutions);
+router.get(
+  '/solutions/developer/:id',
+  solutionController.allDeveloperSolutions
+);
 // // Get all solutions by poster ID
 router.get('/solutions/poster/:id', solutionController.allPosterSolutions);
 // // Post new solution

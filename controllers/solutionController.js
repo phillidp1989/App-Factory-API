@@ -45,7 +45,16 @@ module.exports = {
   },
   saveSolution: async (req, res, next) => {
     try {
-      const { comments, repoName, repoDescription, repoLink, deployedLink, postId, posterId, developerId } = req.body;
+      const {
+        comments,
+        repoName,
+        repoDescription,
+        repoLink,
+        deployedLink,
+        postId,
+        posterId,
+        developerId
+      } = req.body;
       const result = await db.Solution.create({
         comments: [comments],
         repoName,
@@ -75,7 +84,10 @@ module.exports = {
   deleteSolution: async (req, res, next) => {
     try {
       const solutionId = req.params.id;
-      const query = await db.Solution.findOne({ _id: solutionId }).populate(['postId', 'developerId']);
+      const query = await db.Solution.findOne({ _id: solutionId }).populate([
+        'postId',
+        'developerId'
+      ]);
       const postRef = await db.Post.updateOne(
         { _id: query.postId._id },
         { $pullAll: { solutions: solutionId } }
