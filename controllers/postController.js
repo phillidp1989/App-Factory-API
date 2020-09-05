@@ -32,15 +32,15 @@ module.exports = {
   },
   // Save a new post
   savePost: async (req, res, next) => {
+    const {
+      title,
+      summary,
+      description,
+      categories,
+      technologies,
+      posterId
+    } = req.body;
     try {
-      const {
-        title,
-        summary,
-        description,
-        categories,
-        technologies,
-        posterId
-      } = req.body;
       const result = await db.Post.create({
         title,
         summary,
@@ -64,8 +64,8 @@ module.exports = {
   },
   // Delete a post
   deletePost: async (req, res, next) => {
+    const { id: postId } = req.params;
     try {
-      const postId = req.params.id;
       // Find the solutions and users associated with deleted post
       const postQuery = await db.Post.findOne({ _id: postId }).populate([
         'solutions',
@@ -84,15 +84,15 @@ module.exports = {
   },
   // Update post details
   updatePost: async (req, res, next) => {
+    const {
+      _id,
+      title,
+      summary,
+      description,
+      category,
+      technologies
+    } = req.body;
     try {
-      const {
-        _id,
-        title,
-        summary,
-        description,
-        category,
-        technologies
-      } = req.body;
       const result = await db.Post.updateOne(
         { _id },
         { $set: { title, summary, description, category, technologies } }
@@ -104,8 +104,8 @@ module.exports = {
   },
   // Like post
   likePost: async (req, res, next) => {
+    const { postId, userId } = req.body;
     try {
-      const { postId, userId } = req.body;
       const result = await db.Post.updateOne(
         { _id: postId },
         { $push: { likedBy: userId }, $inc: { score: 1 } }
@@ -117,8 +117,8 @@ module.exports = {
   },
   // Like post
   unlikePost: async (req, res, next) => {
+    const { postId, userId } = req.body;
     try {
-      const { postId, userId } = req.body;
       const result = await db.Post.updateOne(
         { _id: postId },
         { $pullAll: { likedBy: userId }, $inc: { score: -1 } }

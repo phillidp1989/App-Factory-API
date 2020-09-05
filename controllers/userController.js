@@ -12,7 +12,6 @@ module.exports = {
   },
   // Update user details
   updateUser: async (req, res, next) => {
-    try {
       const {
         _id,
         provider,
@@ -22,6 +21,7 @@ module.exports = {
         avatar,
         isDeveloper
       } = req.body;
+       try {
       const result = await db.User.updateOne(
         { _id },
         {

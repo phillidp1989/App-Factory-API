@@ -82,8 +82,8 @@ module.exports = {
   },
   // Delete a solution
   deleteSolution: async (req, res, next) => {
-    try {
-      const solutionId = req.params.id;
+      const { id: solutionId } = req.params;
+      try {
       const query = await db.Solution.findOne({ _id: solutionId }).populate([
         'postId',
         'developerId'
@@ -104,8 +104,8 @@ module.exports = {
   },
   // Update post details
   addComment: async (req, res, next) => {
-    try {
       const { solutionId, comments } = req.body;
+      try {
       const result = await db.Solution.updateOne(
         { _id: solutionId },
         { $push: { comments } }
@@ -117,8 +117,8 @@ module.exports = {
   },
   // Delete single comment
   removeComment: async (req, res, next) => {
-    try {
       const { solutionId, comment } = req.body;
+      try {
       const result = await db.Solution.updateOne(
         { _id: solutionId },
         { $pullAll: { comment } }
@@ -130,8 +130,8 @@ module.exports = {
   },
   // Like solution
   likeSolution: async (req, res, next) => {
+    const { solutionId, userId } = req.body;
     try {
-      const { solutionId, userId } = req.body;
       const result = await db.Solution.updateOne(
         { _id: solutionId },
         { $push: { likedBy: userId }, $inc: { score: 1 } }
@@ -143,8 +143,8 @@ module.exports = {
   },
   // Like solution
   unlikeSolution: async (req, res, next) => {
+    const { solutionId, userId } = req.body;
     try {
-      const { solutionId, userId } = req.body;
       const result = await db.Solution.updateOne(
         { _id: solutionId },
         { $pullAll: { likedBy: userId }, $inc: { score: -1 } }
