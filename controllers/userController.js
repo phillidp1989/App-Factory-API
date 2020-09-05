@@ -12,11 +12,28 @@ module.exports = {
   },
   // Update user details
   updateUser: async (req, res, next) => {
+    const {
+      _id,
+      provider,
+      providerId,
+      username,
+      displayName,
+      avatar,
+      isDeveloper
+    } = req.body;
     try {
-      const { _id, provider, providerId, username, displayName, avatar, isDeveloper } = req.body;
       const result = await db.User.updateOne(
         { _id },
-        { $set: { provider, providerId, username, displayName, avatar, isDeveloper } }
+        {
+          $set: {
+            provider,
+            providerId,
+            username,
+            displayName,
+            avatar,
+            isDeveloper
+          }
+        }
       );
       res.status(200).json(result);
     } catch (err) {
