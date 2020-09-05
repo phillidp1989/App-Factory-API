@@ -56,7 +56,7 @@ module.exports = {
         developerId
       } = req.body;
       const result = await db.Solution.create({
-        comments: [comments],
+        comments,
         repoName,
         repoDescription,
         repoLink,
