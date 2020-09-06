@@ -17,14 +17,6 @@ require('./config/facebookPassport');
 // Environment variables
 require('dotenv').config();
 
-// Frontend Origin
-let originUrl;
-if (process.env.NODE_ENV === 'development') {
-  originUrl = config.route.development;
-} else {
-  originUrl = config.route.production;
-}
-
 // Initiate express
 const app = express();
 
