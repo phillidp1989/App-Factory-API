@@ -29,7 +29,7 @@ if (process.env.NODE_ENV === 'development') {
 const app = express();
 
 app.use(cors({
-  origin: originUrl,
+  origin: [config.route.development, config.route.production],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 }));
