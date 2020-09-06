@@ -9,5 +9,9 @@ module.exports = {
   },
   cookie: {
     key: process.env.SECRET_KEY
+  },
+  route: {
+    development: 'http://localhost:3000',
+    production: 'https://app-factory-e6ff0.web.app'
   }
 };
