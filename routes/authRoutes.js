@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
-const config = require('./config/config');
+const config = require('../config/config');
 
 // Environment variables
 require('dotenv').config();
