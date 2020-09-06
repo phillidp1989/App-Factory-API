@@ -51,9 +51,9 @@ router.put('/solutions/unlike', solutionController.unlikeSolution);
 // Users
 
 // Route to send current user object to client
-router.get('/user', userController.getUser);
+router.get('/user', userController.getCurrentUser);
 // Get user by ID
-router.get('/user/:id', userController.getCurrentUser);
+router.get('/user/:id', userController.getUser);
 // Editing user details
 router.put('/user', userController.updateUser);
 
