@@ -32,7 +32,7 @@ app.use(logger('dev'));
 app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000,
   keys: [config.cookie.key],
-  domain: config.route.production
+  domain: '.app-factory-e6ff0.web.app'
 }));
 
 // Middleware initialisation to enable data parsing
