@@ -20,11 +20,7 @@ require('dotenv').config();
 // Initiate express
 const app = express();
 
-app.use(cors({
-  origin: true,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  allowedHeaders: 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept'
-}));
+app.use(cors());
 
 // Initialize Morgan logger
 app.use(logger('dev'));
