@@ -21,7 +21,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: [config.route.development, config.route.production],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 }));
