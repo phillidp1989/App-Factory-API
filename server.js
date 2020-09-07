@@ -20,7 +20,10 @@ require('dotenv').config();
 // Initiate express
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 
 // Initialize Morgan logger
 app.use(logger('dev'));
