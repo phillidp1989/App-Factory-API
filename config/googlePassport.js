@@ -12,6 +12,7 @@ passport.serializeUser((user, done) => {
 
 // Deserialize user retrieves the provider id from the session to find user
 passport.deserializeUser(async (id, done) => {
+  console.log('id', id);
   try {
     const user = await User.findOne({ providerId: id });
     done(null, user);
