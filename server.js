@@ -28,7 +28,8 @@ app.use(logger('dev'));
 // Cookie Session setup to ensure auth persists for specified amount of time
 app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000,
-  keys: [config.cookie.key]
+  keys: [config.cookie.key],
+  domain: config.route.production
 }));
 
 // Middleware initialisation to enable data parsing
