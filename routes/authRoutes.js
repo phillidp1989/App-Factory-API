@@ -22,10 +22,7 @@ router.get(
 // Github redirect route
 router.get(
   '/github/redirect',
-  passport.authenticate('github', { failureRedirect: '/' }),
-  (req, res) => {
-    res.status(200).redirect('https://app-factory-e6ff0.web.app');
-  }
+  passport.authenticate('github', { failureRedirect: '/', successRedirect: 'https://app-factory-e6ff0.web.app' })
 );
 
 // Initiates Google Oauth
@@ -37,11 +34,7 @@ router.get(
 // Google redirect route
 router.get(
   '/google/redirect',
-  passport.authenticate('google', { failureRedirect: '/' }),
-  (req, res) => {
-    res.status(200).redirect('https://app-factory-e6ff0.web.app');
-  }
-);
+  passport.authenticate('google', { failureRedirect: '/', successRedirect: 'https://app-factory-e6ff0.web.app' }));
 
 // Initiates Facebook Oauth
 router.get(
@@ -52,10 +45,8 @@ router.get(
 // Facebook redirect route
 router.get(
   '/facebook/redirect',
-  passport.authenticate('facebook', { failureRedirect: '/' }),
-  (req, res) => {
-    res.status(200).redirect('https://app-factory-e6ff0.web.app');
-  }
+  passport.authenticate('facebook', { failureRedirect: '/', successRedirect: 'https://app-factory-e6ff0.web.app' })
+
 );
 
 // Logout route
