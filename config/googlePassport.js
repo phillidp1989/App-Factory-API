@@ -15,6 +15,7 @@ passport.deserializeUser(async (id, done) => {
   console.log('id', id);
   try {
     const user = await User.findOne({ providerId: id });
+    console.log(user);
     done(null, user);
   } catch (err) {
     console.error('ERROR - googleAuth.js - deserializeuser', err);
