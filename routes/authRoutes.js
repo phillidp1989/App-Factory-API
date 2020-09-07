@@ -24,7 +24,7 @@ router.get(
   '/github/redirect',
   passport.authenticate('github', { failureRedirect: '/' }),
   (req, res) => {
-    res.status(200).redirect(originUrl);
+    res.status(200).redirect(config.route.development);
   }
 );
 
@@ -39,7 +39,7 @@ router.get(
   '/google/redirect',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
-    res.status(200).redirect(originUrl);
+    res.status(200).redirect(config.route.development);
   }
 );
 
@@ -54,14 +54,14 @@ router.get(
   '/facebook/redirect',
   passport.authenticate('facebook', { failureRedirect: '/' }),
   (req, res) => {
-    res.status(200).redirect(originUrl);
+    res.status(200).redirect(config.route.development);
   }
 );
 
 // Logout route
 router.get('/logout', (req, res) => {
   req.logout();
-  res.status(200).redirect(originUrl);
+  res.status(200).redirect(config.route.development);
 });
 
 module.exports = router;
