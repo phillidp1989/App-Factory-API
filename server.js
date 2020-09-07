@@ -21,7 +21,7 @@ require('dotenv').config();
 const app = express();
 
 app.use(cors({
-  origin: 'https://app-factory-e6ff0.web.app',
+  origin: true,
   vary: 'Origin',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
