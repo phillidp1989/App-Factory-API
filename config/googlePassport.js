@@ -7,6 +7,7 @@ require('dotenv').config();
 
 // Serialize user saved the providerId to the session
 passport.serializeUser((user, done) => {
+  console.log('serialize user', user);
   done(null, user.providerId);
 });
 
