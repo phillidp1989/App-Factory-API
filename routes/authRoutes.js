@@ -1,17 +1,8 @@
 const router = require('express').Router();
 const passport = require('passport');
-const config = require('../config/config');
 
 // Environment variables
 require('dotenv').config();
-
-// Frontend Origin
-let originUrl;
-if (process.env.NODE_ENV === 'development') {
-  originUrl = config.route.development;
-} else {
-  originUrl = config.route.production;
-}
 
 // Initiates Github Oauth
 router.get(
