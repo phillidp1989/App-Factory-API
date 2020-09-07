@@ -42,6 +42,7 @@ module.exports = {
   },
   // Get current user data
   getCurrentUser: (req, res) => {
+    console.log(req.user);
     res.send({ user: req.user });
   }
 };
