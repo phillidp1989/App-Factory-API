@@ -22,7 +22,6 @@ const app = express();
 
 app.use(cors({
   origin: true,
-  vary: 'Origin',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true
 }));
