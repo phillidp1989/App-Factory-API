@@ -1,8 +1,8 @@
 const express = require('express');
 const passport = require('passport');
 const logger = require('morgan');
-const cors = require('cors');
 const cookieSession = require('cookie-session');
+const path = require('path');
 
 const authRoutes = require('./routes/authRoutes');
 const apiRoutes = require('./routes/apiRoutes');
@@ -20,12 +20,6 @@ require('dotenv').config();
 // Initiate express
 const app = express();
 
-app.use(cors({
-  origin: [config.route.development, config.route.production],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true
-}));
-
 // Initialize Morgan logger
 app.use(logger('dev'));
 
@@ -39,6 +33,11 @@ app.use(cookieSession({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve up static assets
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 // Initialize passport and sessions
 app.use(passport.initialize());
 app.use(passport.session());
@@ -46,6 +45,10 @@ app.use(passport.session());
 // Routes
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
 
 // Connect to DB
 connectDB();
