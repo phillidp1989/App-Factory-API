@@ -16,7 +16,8 @@ passport.deserializeUser(async (id, done) => {
   try {
     const user = await User.findOne({ providerId: id });
     console.log(user);
-    done(null, user);
+    const finalUser = JSON.stringify(user);
+    done(null, finalUser);
   } catch (err) {
     console.log('ERROR - facebookAuth.js - deserializeUser', err);
   }
