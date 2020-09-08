@@ -57,7 +57,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      domain: '.localhost',
+      domain: '.app-factory-e6ff0.web.app',
       maxAge: 24 * 6 * 60 * 10000
     },
     store: new MongoStore({ mongooseConnection: mongoose.connection })
