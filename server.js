@@ -2,7 +2,10 @@ const express = require('express');
 const passport = require('passport');
 const logger = require('morgan');
 const cors = require('cors');
-const cookieSession = require('cookie-session');
+// const cookieSession = require('cookie-session');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+const mongoose = require('mongoose');
 
 const authRoutes = require('./routes/authRoutes');
 const apiRoutes = require('./routes/apiRoutes');
@@ -29,15 +32,25 @@ app.use(cors({
 app.use(logger('dev'));
 
 // Cookie Session setup to ensure auth persists for specified amount of time
-app.use(cookieSession({
-  maxAge: 24 * 60 * 60 * 1000,
-  keys: [config.cookie.key],
-  domain: '.app-factory-e6ff0.web.app'
-}));
+// app.use(cookieSession({
+//   maxAge: 24 * 60 * 60 * 1000,
+//   keys: [config.cookie.key],
+//   domain: '.app-factory-e6ff0.web.app'
+// }));
 
 // Middleware initialisation to enable data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Sessions
+app.use(
+  session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+  })
+);
 
 // Initialize passport and sessions
 app.use(passport.initialize());
