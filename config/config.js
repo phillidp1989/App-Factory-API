@@ -12,6 +12,6 @@ module.exports = {
   },
   route: {
     development: 'http://localhost:3000',
-    production: 'https://app-factory-e6ff0.web.app'
+    production: 'https://app-factory-api.herokuapp.com/'
   }
 };

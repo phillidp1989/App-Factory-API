@@ -27,7 +27,7 @@ export default function CenteredGrid() {
 
   useEffect(() => {
     const fetchUserPosts = async id => {
-      const results = await axios.get(`http://localhost:5000/api/posts/user/${id}`);
+      const results = await axios.get(`/api/posts/user/${id}`);
       console.log(results.data);
       setUserPosts(results.data);
     };
