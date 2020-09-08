@@ -28,6 +28,14 @@ app.use(cors({
   credentials: true
 }));
 
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+  next();
+});
+
 // Initialize Morgan logger
 app.use(logger('dev'));
 
@@ -48,6 +56,10 @@ app.use(
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,
+    cookie: {
+      domain: '.localhost',
+      maxAge: 24 * 6 * 60 * 10000
+    },
     store: new MongoStore({ mongooseConnection: mongoose.connection })
   })
 );
