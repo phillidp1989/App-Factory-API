@@ -36,6 +36,8 @@ app.use(function (req, res, next) {
   next();
 });
 
+app.set('trust proxy', 1);
+
 // Initialize Morgan logger
 app.use(logger('dev'));
 
