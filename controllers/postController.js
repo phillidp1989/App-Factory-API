@@ -1,4 +1,5 @@
 const db = require('../models');
+const sanitize = require('sanitize-html');
 
 module.exports = {
   // Get all posts for homepage
@@ -40,11 +41,12 @@ module.exports = {
       technologies,
       posterId
     } = req.body;
+
     try {
       const result = await db.Post.create({
         title,
         summary,
-        description,
+        description: sanitize(description),
         categories,
         technologies,
         posterId,
@@ -95,7 +97,15 @@ module.exports = {
     try {
       const result = await db.Post.updateOne(
         { _id },
-        { $set: { title, summary, description, category, technologies } }
+        {
+          $set: {
+            title,
+            summary,
+            description: sanitize(description),
+            category,
+            technologies
+          }
+        }
       );
       res.status(200).json(result);
     } catch (err) {
